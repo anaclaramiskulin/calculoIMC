@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<title>Calculadora IMC</title>
+
+    <body id="body">
+        <h1>Calculadora IMC</h1>
+
+        <body>
+            <div>
+                <form>
+                    
+                <div id="nome">
+                    <label>Nome:</label>
+                    <br>
+                    <input type="text" name="nome">
+                </div>
+                <div id="altura">
+                    <label>Altura:</label>
+                    <br>
+                    <input type="text" name="altura">
+                </div>
+                <div id="peso">
+                    <label>Peso:</label>
+                    <br>
+                    <input type="text" name="peso">
+                </div>
+                <div id="calcular"> 
+                    <button>Calcular</button>
+                </div>
+                </form>
+            </div>
+ 
+            <style>
+                table {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+                th,
+                td {
+                    padding: 10px 20px;
+                    border: 1px solid #000;
+                }
+            </style>
+
+            <script>
+                var nome = '';
+                var altura = '';
+                var peso = '';
+
+                var button = document.querySelector("button");
+
+                let table = document.createElement('table');
+                let thead = document.createElement('thead');
+                let tbody = document.createElement('tbody');
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                document.getElementById('body').appendChild(table);
+
+                let row_1 = document.createElement('tr');
+                let heading_1 = document.createElement('th');
+                heading_1.innerHTML = "Nome";
+                let heading_2 = document.createElement('th');
+                heading_2.innerHTML = "Altura";
+                let heading_3 = document.createElement('th');
+                heading_3.innerHTML = "Peso";
+                let heading_4 = document.createElement('th');
+                heading_4.innerHTML = "IMC";
+
+                row_1.appendChild(heading_1);
+                row_1.appendChild(heading_2);
+                row_1.appendChild(heading_3);
+                row_1.appendChild(heading_4);
+                thead.appendChild(row_1);
+
+                button.onclick = function () {
+                    nome = document.querySelector("#nome");
+                    altura = document.querySelector("#altura");
+                    peso = document.querySelector("#peso");
+                    var imc = peso.value / (altura.value * altura.value);
+                    let row_3 = document.createElement('tr');
+                    let row_3_data_1 = document.createElement('td');
+                    row_3_data_1.innerHTML = nome.value;
+                    let row_3_data_2 = document.createElement('td');
+                    row_3_data_2.innerHTML = altura.value;
+                    let row_3_data_3 = document.createElement('td');
+                    row_3_data_3.innerHTML = peso.value;
+                    let row_3_data_4 = document.createElement('td');
+                    row_3_data_4.innerHTML = imc;
+
+                    row_3.appendChild(row_3_data_1);
+                    row_3.appendChild(row_3_data_2);
+                    row_3.appendChild(row_3_data_3);
+                    row_3.appendChild(row_3_data_4);
+                    tbody.appendChild(row_3);
+                }
+            </script>
+
+</body >
+</html >
